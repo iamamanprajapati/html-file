@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Given array : <p id="array" style="display: inline"></p>
+    <button id="b" onclick="insertion_sort()" >click</button>
+
+    <script>
+        const items = [34, 1, 67, 34, 98, 43, 2]
+        document.getElementById("array").innerHTML = items;
+
+
+        function insertion_sort(items) {
+            var len = items.length;
+            var i = 1;
+            while (i < len) {
+                var x = items[i];
+                var j = i - 1;
+                while (j >= 0 && items[j] > x) {
+                    items[j + 1] = items[j];
+                    j = j - 1;
+                }
+                items[j + 1] = x;
+                i = i + 1;
+            }
+            console.log(items)
+        }
+
+
+        function bblSort(items) {
+            for (var i = 0; i < items.length; i++) {
+                for (var j = 0; j < (items.length - i - 1); j++) {
+                    if (items[j] > items[j + 1]) {
+                        var temp = items[j]
+                        items[j] = items[j + 1]
+                        items[j + 1] = temp
+                    }
+                }
+            }
+            console.log(items+"yes")
+        }
+
+
+        function swap(items, leftIndex, rightIndex) {
+            var temp = items[leftIndex];
+            items[leftIndex] = items[rightIndex];
+            items[rightIndex] = temp;
+        }
+        function partition(items, left, right) {
+            var pivot = items[Math.floor((right + left) / 2)], 
+                i = left,
+                j = right; 
+            while (i <= j) {
+                while (items[i] < pivot) {
+                    i++;
+                }
+                while (items[j] > pivot) {
+                    j--;
+                }
+                if (i <= j) {
+                    swap(items, i, j); 
+                    i++;
+                    j--;
+                }
+            }
+            return i;
+        }
+
+        function quickSort(items, left, right) {
+            var index;
+            if (items.length > 1) {
+                index = partition(items, left, right);
+                if (left < index - 1) {
+                    quickSort(items, left, index - 1);
+                }
+                if (index < right) {
+                    quickSort(items, index, right);
+                }
+            }
+            return items;
+        }
+        var sortedArray = quickSort(items, 0, items.length - 1);
+        console.log(sortedArray);
+
+    </script>
+
+</body>
+
+</html>

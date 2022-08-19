@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    First Date : <input id="first" value="21/09/2020" /><br><br>
+    Second Date :<input id="second" value="23/07/2022"/><br><br>
+    <button onclick=" showdata()">Submit</button><br><br>
+    Days Count : <h3 id="result" style="display: inline;"></h3>
+
+    <script>
+        function parseDate(str) {
+            var mdy = str.split('/');
+            console.log(mdy)
+            return new Date(mdy[2], mdy[0] - 1, mdy[1]);
+        }
+
+        function datediff(first, second) {
+            return Math.round((second - first) / (1000 * 60 * 60 * 24));
+        }
+
+        function showdata() {
+            // var  first = document.getElementById("first").value;
+            // console.log(first)
+            // var second = document.getElementById("second").value;
+            // console.log(second)
+            var value = datediff(parseDate(first.value), parseDate(second.value));
+            console.log(value)
+            document.getElementById("result").innerHTML = value;
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

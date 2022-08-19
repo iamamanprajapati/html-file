@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function findMissedNum(arrayOfNumbers, n = 100) {
+    if(arrayOfNumbers.length === n) {
+      console.log("no number is missed");
+    }
+    if(arrayOfNumbers.length < (n - 1) ) {
+      console.log("more than one number is missed")
+    }
+    let totalSum = (n * (n+1)) / 2;
+    let sumOfArray = 0;
+    
+    for(let i of arrayOfNumbers){
+        sumOfArray += i;
+    }
+    
+    return totalSum - sumOfArray;
+}
+let arrayOfNumbers = Array.from( Array(101).keys())
+
+console.log(arrayOfNumbers)
+
+arrayOfNumbers.shift();
+
+
+arrayOfNumbers.splice(60, 1)
+
+
+let missedNum = findMissedNum(arrayOfNumbers, 100);
+function missing(){
+    document.getElementById("missing").innerHTML = missedNum;
+}
+
+    </script>
+
+    <button  onclick="missing()" > click</button>
+
+Missing number : <h1 id="missing"/> 
+</body>
+</html>

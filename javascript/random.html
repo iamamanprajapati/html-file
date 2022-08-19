@@ -1,0 +1,126 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+    <title>  Random Number </title>
+</head>
+
+<body>
+    <p id="rn"></p>
+    <script>
+        function randomNumber() {
+            return Math.floor(Math.random() * 101);
+        }
+        document.getElementById("rn").innerHTML = randomNumber();
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>  celsius2forenht </title>
+</head>
+
+<body>
+    <p id="c2f"></p>
+    <script>
+        function cToF(celsius) {
+            var cTemp = celsius;
+            var cToFahr = cTemp * 9 / 5 + 32;
+            var message = cTemp + '\xB0C is ' + cToFahr + ' \xB0F.';
+            return message;
+        }
+        document.getElementById("c2f").innerHTML = cToF(60);
+    </script>
+</body>
+</html>
+
+
+<html>
+
+<head>
+    <title>  Palindrome </title>
+</head>
+
+<body>
+    <script>
+
+        function validatePalin(str) {
+            const len = string.length;
+            for (let i = 0; i < len / 2; i++) {
+                if (string[i] !== string[len - 1 - i]) {
+                    return 'It is not a palindrome'
+                }
+            }
+            return 'It is a palindrome';
+        }
+        const string = prompt('Enter a string or number: ');
+        const value = validatePalin(string);
+        console.log(value);  
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+<!-- <html>
+
+<head>
+    <title>  factorial </title>
+</head>
+
+<body>
+    <script>
+        function factorialize(num) {
+            if (num < 0)
+                return -1;
+            else if (num == 0)
+                return 1;
+            else {
+                return (num * factorialize(num - 1));
+            }
+        }
+        console.log(factorialize(5););  
+    </script>
+</body>
+
+</html>  -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>  decimal2binary </title>
+    </head>
+<body>
+<p id="d2b"></p>
+<script>
+// function dec2bin(dec){
+//   return (dec >>> 0).toString(2);
+// }
+
+// document.getElementById("d2b").innerHTML = dec2bin(5);
+
+function convertToBinary(x) {
+    let bin = 0;
+    let rem, i = 1, step = 1;
+    while (x != 0) {
+        rem = x % 2;
+        x = parseInt(x / 2);
+        bin = bin + rem * i;
+        i = i * 10;
+    }
+
+    return bin;
+
+    
+}
+
+document.getElementById("d2b").innerHTML = convertToBinary(6);
+</script>
+
+</body>
+</html>
